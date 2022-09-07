@@ -81,25 +81,6 @@ public class PowerButton: UIButton {
         addTarget(self, action: #selector(touchUpInside), for: .touchUpInside)
         addTarget(self, action: #selector(touchDragExit), for: .touchDragExit)
         addTarget(self, action: #selector(touchDragExit), for: .touchCancel)
-        addTarget(self, action: #selector(logTouchUpOutside), for: .touchUpOutside)
-        addTarget(self, action: #selector(logTouchDownRepeat), for: .touchDownRepeat)
-        addTarget(self, action: #selector(logAllTouchEvents), for: .allTouchEvents)
-    }
-    
-    @objc private func logTouchDragEnter() {
-        print("touchDragEnter")
-    }
-
-    @objc private func logTouchUpOutside() {
-        print("touchUpOutSide")
-    }
-    
-    @objc private func logTouchDownRepeat() {
-        print("touchDownRepeat")
-    }
-    
-    @objc private func logAllTouchEvents() {
-        
     }
     
     @objc private func touchDragExit() {
@@ -116,7 +97,7 @@ public class PowerButton: UIButton {
     @objc private func touchDown() {
         let duration = 0.2
         let damping: CGFloat = 1
-        let scale: CGFloat = 0.9
+        let scale: CGFloat = 0.925
         
         UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: damping, initialSpringVelocity: 0, options: [.allowUserInteraction, .curveEaseInOut], animations: {
             self.transform = CGAffineTransform(scaleX: scale, y: scale)
@@ -150,7 +131,7 @@ public class PowerButton: UIButton {
         }
     }
     
-    func startLoading() {
+    public func startLoading() {
         didTriggerStopLoading = false
         isLoading = true
         isEnabled = false
@@ -181,7 +162,7 @@ public class PowerButton: UIButton {
         self.activityIndicator = activityIndicator
     }
     
-    func stopLoading() {
+    public func stopLoading() {
         didTriggerStopLoading = true
         isEnabled = true
         if let temporaryTitle = temporaryTitle {
