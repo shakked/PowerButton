@@ -13,12 +13,17 @@ let package = Package(
     ],
     dependencies: [
         // Declare your GitMart dependency here
-        .package(url: "https://github.com/gitmart-co/gitmart-ios-sdk", from: "0.0.1")
+        // .package(url: "https://github.com/gitmart-co/gitmart-ios-sdk", from: "0.0.1")
+        .package(path: "../GitMart")
     ],
     targets: [
         .target(
             name: "PowerButton",
             // Add GitMart as a dependency in your target
-            dependencies: [.product(name: "GitMart", package: "gitmart-ios-sdk")])
+            dependencies: [
+                // .product(name: "GitMart", package: "gitmart-ios-sdk")
+                "GitMart"
+            ]
+        )
     ]
 )

@@ -3,7 +3,7 @@ import GitMart
 
 public class PowerButton: UIButton {
 
-    public let gitMartProjectID: String = "1234"
+    public let gitMartProjectID: String = "6318a6aa90eb1af078a0cda7"
     
     @IBInspectable public var cornerRadius: CGFloat = 0.0 {
         didSet {
